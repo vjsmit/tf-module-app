@@ -42,7 +42,7 @@ resource "aws_iam_role" "role" {
   })
 }
 
-#instance_profile
+#instance_profile_creation
 resource "aws_iam_instance_profile" "instance_profile" {
   name = "${var.component}-${var.env}-instance-profile"
   role = aws_iam_role.role.name
