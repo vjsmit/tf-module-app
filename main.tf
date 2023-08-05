@@ -1,9 +1,9 @@
-
 ##security group
 
 resource "aws_security_group" "main" {
   name        = "${var.component}-${var.env}-sg"
   description = "${var.component}-${var.env}-sg"
+  vpc_id = var.vpc_id
 
   ingress {
     from_port        = var.app_port
@@ -51,6 +51,7 @@ resource "aws_autoscaling_group" "main" {
   desired_capacity   = var.desired_capacity
   max_size           = var.max_size
   min_size           = var.min_size
+  vpc_zone_identifier = var.subnets
 
   launch_template {
     id      = aws_launch_template.main.id
