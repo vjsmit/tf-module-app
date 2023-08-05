@@ -41,10 +41,10 @@ resource "aws_launch_template" "main" {
     env       = var.env
     component = var.component
   })
-  root_block_device {
-    encrypted = true
-    kms_key_id = var.kms_key_id
-  }
+#  user_data = base64encode(templatefile("${path.module}/userdata.sh", {
+#    component = var.component
+#    env  = var.env
+#  }))
 }
 
 resource "aws_autoscaling_group" "main" {
