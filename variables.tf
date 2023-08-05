@@ -11,7 +11,7 @@ variable "app_port" {}
 variable "sg_subnets_cidr" {}
 variable "kms_key_id" {}
 variable "instance_type" {}
-variable "name" {}
+#variable "name" {}
 variable "max_size" {}
 variable "min_size" {}
 variable "desired_capacity" {}
