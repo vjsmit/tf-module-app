@@ -17,3 +17,5 @@ variable "min_size" {}
 variable "desired_capacity" {}
 variable "allow_ssh_cidr" {}
 variable "lb_dns_name" {}
+variable "listener_arn" {}
+variable "lb_rule_priority" {}

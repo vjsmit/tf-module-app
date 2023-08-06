@@ -38,6 +38,22 @@ resource "aws_lb_target_group" "main" {
   vpc_id   = var.vpc_id
 }
 
+resource "aws_lb_listener_rule" "host_based_weighted_routing" {
+  listener_arn = var.listener_arn
+  priority     = var.lb_dns_name
+
+  action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.main.arn
+  }
+
+  condition {
+    host_header {
+      values = ["${var.component}-${var.env}.smitdevops.online"]
+    }
+  }
+}
+
 resource "aws_launch_template" "main" {
   name = "${var.component}-${var.env}"
   iam_instance_profile {
