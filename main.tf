@@ -71,13 +71,13 @@ resource "aws_autoscaling_group" "main" {
   }
 }
 
-##dns record
-#
-#resource "aws_route53_record" "dns" {
-#  zone_id = "Z0478111B3O54DLF4LSS"
-#  name    = "${var.component}-dev"
-#  type    = "A"
-#  ttl     = 30
-#  records = [aws_instance.instance.private_ip]
-#}
+#dns record
+
+resource "aws_route53_record" "dns" {
+  zone_id = "Z0478111B3O54DLF4LSS"
+  name    = "${var.component}-dev"
+  type    = "C"
+  ttl     = 30
+  records = [var.lb_dns_name]
+}
 
