@@ -15,3 +15,4 @@ variable "instance_type" {}
 variable "max_size" {}
 variable "min_size" {}
 variable "desired_capacity" {}
+variable "allow_ssh_cidr" {}
