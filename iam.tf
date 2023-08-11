@@ -20,7 +20,7 @@ resource "aws_iam_policy" "policy" {
         "Resource": [
           "arn:aws:ssm:us-east-1:434623354977:parameter/roboshop.${var.env}.${var.component}.*",
           "arn:aws:ssm:us-east-1:434623354977:parameter/roboshop.${var.env}.docdb.*"
-          "arn:aws:ssm:us-east-1:434623354977:arn:aws:kms:us-east-1:434623354977:key/4232fc03-9621-481b-83e2-a4f64d527d7a"
+          "arn:aws:kms:us-east-1:434623354977:key/4232fc03-9621-481b-83e2-a4f64d527d7a"
 
         ]
 
